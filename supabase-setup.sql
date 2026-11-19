@@ -1,0 +1,8 @@
+-- Restaurant Royale uses Supabase Realtime Broadcast and Presence.
+-- No database tables are required for this starter version.
+-- In Supabase Dashboard:
+-- 1. Create a project.
+-- 2. Open Project Settings > API.
+-- 3. Copy Project URL and anon/public key into game.js.
+-- 4. Open Realtime settings and ensure Realtime is enabled.
+-- 5. For production, configure Realtime channel access policies as needed.

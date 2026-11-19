@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ed3d2c">
+  <title>Restaurant Royale: First Kitchen</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeButton"><span class="brand-mark">🍅</span> Restaurant Royale</a>
+    <span class="top-note">FIRST KITCHEN</span>
+    <button class="top-play" id="topPlay">Play</button>
+  </header>
+
+  <main>
+    <section class="screen active" id="coverScreen">
+      <div class="cover-art">
+        <div class="cover-shade"></div>
+        <div class="cover-copy">
+          <div class="eyebrow">🔥 10 foods enter. 1 walks out.</div>
+          <h1>Restaurant<br><span>Royale</span></h1>
+          <h2>FIRST KITCHEN</h2>
+          <p>Be the last snack standing. Pick a fighting food, raid the pantry, grab kitchen gear, and stay ahead of the boiling broth.</p>
+          <div class="cover-actions">
+            <button class="primary big" id="createFromCover">🎮 Play Restaurant Royale</button>
+            <button class="secondary big" id="chooseFromCover">Choose fighter</button>
+          </div>
+          <p class="small-note">Multiplayer • Up to 10 players • One kitchen</p>
+        </div>
+        <div class="cover-food food-tomato">🍅</div>
+        <div class="cover-food food-donut">🍩</div>
+        <div class="cover-food food-pickle">🥒</div>
+        <div class="cover-food food-egg">🍳</div>
+        <div class="cover-food food-sushi">🍣</div>
+      </div>
+    </section>
+
+    <section class="screen" id="menuScreen">
+      <div class="wood-title">KITCHEN ROYALE</div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="card-icon">🏠</div><h2>Create a kitchen</h2>
+          <p>Start a private room and invite up to nine friends.</p>
+          <button class="primary full" id="createRoom">Create room</button>
+        </article>
+        <article class="menu-card">
+          <div class="card-icon">🚪</div><h2>Join a kitchen</h2>
+          <p>Enter the room code your host shared with you.</p>
+          <input id="joinCode" maxlength="6" placeholder="ROOM CODE" autocomplete="off">
+          <button class="primary full" id="joinRoom">Join room</button>
+        </article>
+      </div>
+      <button class="text-button" id="backCover">← Back to cover</button>
+    </section>
+
+    <section class="screen" id="selectScreen">
+      <div class="wood-title">FOOD SELECTION</div>
+      <div class="selection-layout">
+        <div class="fighter-preview">
+          <div class="player-ribbon" id="playerRibbon">P1</div>
+          <div class="fighter-emoji" id="fighterEmoji">🍔</div>
+          <h2 id="fighterName">Sir Meatsalot</h2>
+          <p id="fighterRole">Heavyweight</p>
+          <div class="stat-list" id="fighterStats"></div>
+          <p class="weapon-line" id="weaponLine"></p>
+          <div class="fighter-arrows">
+            <button class="round-arrow" id="prevFighter">‹</button>
+            <button class="round-arrow" id="nextFighter">›</button>
+          </div>
+          <button class="primary full" id="lockFighter">READY!</button>
+        </div>
+        <aside class="lobby-panel">
+          <div class="lobby-heading"><div><span class="eyebrow dark">YOUR KITCHEN</span><h2>Waiting room</h2></div><div class="player-count" id="playerCount">1 / 10</div></div>
+          <div class="room-code-label">SHARE THIS ROOM CODE</div>
+          <div class="room-code-row"><strong id="roomCode">------</strong><button class="copy-button" id="copyCode">Copy</button></div>
+          <div class="players-list" id="playersList"></div>
+          <div class="lobby-bottom">
+            <p id="lobbyMessage">Choose your fighter and get ready.</p>
+            <button class="primary full" id="deployButton" disabled>DEPLOY! (HOST ONLY)</button>
+            <button class="secondary full" id="leaveRoom">Leave kitchen</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen game-screen" id="gameScreen">
+      <div class="game-hud">
+        <div class="hud-brand">🍅 RESTAURANT ROYALE</div>
+        <div class="hud-stat">❤️ <span id="healthValue">100</span></div>
+        <div class="hud-stat">🏆 <span id="aliveValue">10</span> LEFT</div>
+        <div class="hud-stat">🔪 <span id="weaponValue">Meatball Bonker</span></div>
+        <button class="hud-exit" id="exitGame">Leave</button>
+      </div>
+      <canvas id="gameCanvas"></canvas>
+      <div class="game-help">WASD MOVE <span>•</span> CLICK / SPACE ATTACK <span>•</span> AIM WITH MOUSE</div>
+      <div class="game-message" id="gameMessage"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="game.js"></script>
+</body>
+</html>
